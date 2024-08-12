@@ -26,7 +26,7 @@ function FlashSlider({ data }) {
   }
 
   return (
-    <div className='relative w-[20%] h-[30%]'>
+    <div className='relative w-[40%] h-[50%]'>
       <img onClick={() => { prevCard() }} className='absolute top-[50%] -left-16 cursor-pointer' width="26" height="26" src="https://img.icons8.com/metro/26/000000/sort-left.png" alt="sort-left" />
       <img onClick={() => { nextCard() }} className='absolute top-[50%] -right-16 cursor-pointer' width="26" height="26" src="https://img.icons8.com/metro/26/000000/sort-right.png" alt="sort-left" />
       <div className='w-[100%] h-[100%] overflow-hidden flex rounded-md'>
@@ -37,7 +37,7 @@ function FlashSlider({ data }) {
                 <p className='text-gray-500 font-medium text-sm'>{card.id}</p>
                 <p className='font-bold text-xl'>{card.question}</p>
               </div>
-              <div onClick={()=>{setFlip(!flip)}} style={{transform: "rotateY(180deg)",  backfaceVisibility: "hidden"}} className='flex z-20 justify-center items-center w-full h-full absolute bg-white'>
+              <div onClick={()=>{setFlip(!flip)}} style={{transform: "rotateY(180deg)",  backfaceVisibility: "hidden"}} className='flex p-10 justify-center items-center w-full h-full absolute bg-white'>
                 <p className='font-bold text-xl'>{card.answer}</p>
               </div>
             </div>
