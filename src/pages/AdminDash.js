@@ -12,13 +12,11 @@ function AdminDash() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setLoggedIn(localStorage.getItem("loggedIn"))
     getLatestID()
     getAllData()
   }, [])
 
   const logout = () => {
-    localStorage.setItem("loggedIn", false)
     navigate("/", { replace: true })
   }
 
@@ -53,8 +51,7 @@ function AdminDash() {
   const login = (email, password) => {
     if (email == process.env.REACT_APP_EMAIL) {
       if (password == process.env.REACT_APP_PASSWORD) {
-        localStorage.setItem("loggedIn", true)
-        setLoggedIn("true")
+        setLoggedIn(true)
         setLoading(false)
       }
       else {
@@ -102,7 +99,7 @@ function AdminDash() {
           :
           <>
             {
-              loggedIn === "true" ?
+              loggedIn ?
                 //Logged In
                 <div className='flex justify-center items-center h-screen w-full flex-col relative gap-5 bg-blue-300 p-20'>
                   <p className='font-bold font-mono text-xl absolute top-20'>Flash Admin Panel</p>
@@ -132,8 +129,8 @@ function AdminDash() {
                 <div className='flex flex-col gap-5'>
                   <p className='text-xl font-mono text-center font-bold'>Flash Admin Portal</p>
                   <div className='flex flex-col gap-2'>
-                    <input onChange={(e) => { setUser({ ...user, email: e.target.value }) }} className='bg-white rounded-md px-5 py-2 outline-none font-mono' placeholder='Admin email' />
-                    <input onChange={(e) => { setUser({ ...user, password: e.target.value }) }} className='bg-white rounded-md px-5 py-2 outline-none font-mono' placeholder='Admin password' />
+                    <input onChange={(e) => { setUser({ ...user, email: e.target.value }) }} className='bg-white rounded-md px-5 py-2 outline-none font-mono' value={user.email} placeholder='Admin email' />
+                    <input onChange={(e) => { setUser({ ...user, password: e.target.value }) }} className='bg-white rounded-md px-5 py-2 outline-none font-mono' value={user.password} placeholder='Admin password' />
                   </div>
                   <button onClick={() => { handleClick() }} className='bg-white rounded-md px-5 py-2 hover:scale-105 font-mono active:scale-100'>Login</button>
                   <p className='font-mono'>Cred: admin, admin</p>
