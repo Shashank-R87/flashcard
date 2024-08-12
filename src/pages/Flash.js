@@ -46,7 +46,7 @@ function Flash() {
                         }
                     </>
             }
-            <button onClick={()=>{navigate("/admin", {replace: true})}} className='absolute top-10 right-10 font-mono text-lg font-semibold hover:underline underline-offset-8'>Flash Admin</button>
+            <button onClick={()=>{navigate("/admin")}} className='absolute top-10 right-10 font-mono text-lg font-semibold hover:underline underline-offset-8'>Flash Admin</button>
         </div>
     )
 }

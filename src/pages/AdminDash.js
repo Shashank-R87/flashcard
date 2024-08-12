@@ -17,7 +17,7 @@ function AdminDash() {
   }, [])
 
   const logout = () => {
-    navigate("/", { replace: true })
+    navigate("/")
   }
 
   const getLatestID = async () => {
